@@ -91,9 +91,6 @@ export default {
       return `${day} ${date} ${month} ${year}`;
     },
   },
-  mounted() {
-    console.log(import.meta.env);
-  },
 };
 </script>
 
