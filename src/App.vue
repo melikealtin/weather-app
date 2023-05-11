@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -43,20 +45,24 @@ export default {
     };
   },
   methods: {
-    fetchWeather(e) {
+    async fetchWeather(e) {
       if (e.key == "Enter") {
-        fetch(
-          `${this.url_base}/weather?q=${this.query}&units=metric&APPID=${this.api_key}`
-        )
-          .then((res) => {
-            return res.json();
-          })
-          .then(this.setResults);
+        try {
+          const { data } = await axios.get(`${this.url_base}/weather`, {
+            params: {
+              q: this.query,
+              units: "metric",
+              APPID: this.api_key,
+            },
+          });
+
+          this.weather = data;
+        } catch ({ response }) {
+          if (response.status == 401)
+            alert("Kullanıcı yetkisi bulunmamaktadır!");
+          if (response.status == 404) alert("Sonuç Bulunamadı!");
+        }
       }
-    },
-    setResults(results) {
-      this.weather = results;
-      // console.log(this.weather);
     },
     dateBuilder() {
       let d = new Date();
