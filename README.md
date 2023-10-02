@@ -4,7 +4,8 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 ## Screenshots
 
-![list-app](https://github.com/melikealtin/weather-app/commit/ab40a2657bee9c9ee7aa987379e7e708d7dc27fd)
+![weather-app](https://github.com/melikealtin/weather-app/blob/master/Screenshot%20(1).png)
+![weather-app](https://github.com/melikealtin/weather-app/blob/master/Screenshot%20(2).png)
 
 
 ## Recommended IDE Setup
